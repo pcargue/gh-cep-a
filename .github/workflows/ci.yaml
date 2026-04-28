@@ -41,3 +41,11 @@ jobs:
         run: |
           npm ci
           npm run test
+
+  bye:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Bye
+        run: echo 'bye'
