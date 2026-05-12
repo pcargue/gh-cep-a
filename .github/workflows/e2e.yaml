@@ -3,6 +3,7 @@ name: Cypress E2E workflow
 on:
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   e2eTests:
