@@ -21,3 +21,5 @@ jobs:
         working-directory: ./hangman-e2e/e2e
       - name: Execute e2e tests
         uses: cypress-io/github-action@v7
+        with:
+          working-directory: ./hangman-e2e/e2e
