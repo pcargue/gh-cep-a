@@ -1,0 +1,37 @@
+name: CI Frontend
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'hangman-front/**'
+
+jobs:
+  build-and-test:
+    name: Build and unit tests
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: hangman-front
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 18
+          cache: npm
+          cache-dependency-path: hangman-front/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build frontend
+        run: npm run build
+
+      - name: Run unit tests
+        run: npm run test
